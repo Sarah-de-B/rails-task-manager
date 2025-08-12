@@ -1,0 +1,10 @@
+<h1>Your to-do list</h1>
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <%= link_to(task.title,task_path(task)) %>
+      <%= link_to "delete", remove_task_path(task), class: 'btn btn-danger mx-5', data: {turbo_method: :delete, turbo_confirm: "are you sure?"} %>
+    </li>
+  <% end %>
+</ul>
+<p><%= link_to "Add task", tasks_path %></p>
